@@ -31,7 +31,7 @@ brew_install() {
 
 	# Install the specified formula.
 	# shellcheck disable=SC2086
-	if brew list "$FORMULA" &>/dev/null && ; then
+	if brew list "$FORMULA" &>/dev/null; then
 		print_success "$FORMULA_READABLE_NAME"
 	else
 		execute \
