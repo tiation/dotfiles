@@ -97,7 +97,6 @@ then
     export -f code
     export -f c_prettyping
     export -f c_mtr
-    export -f arasaka
     export -f pupdate
 fi
 

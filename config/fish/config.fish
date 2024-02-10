@@ -19,7 +19,6 @@ funcsave sreload >/dev/null
 funcsave treload >/dev/null
 funcsave supdate >/dev/null
 funcsave pupdate >/dev/null
-funcsave arasaka >/dev/null
 
 # Aliases
 alias ping c_prettyping
