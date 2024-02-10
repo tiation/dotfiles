@@ -17,9 +17,15 @@
 - Supports `bash`, `zsh`, `fish`  with `starship` shell prompt
 
 ## Installation
-In the home directory
+### MacOS 12.0 Monterey (and above)
+
 ```bash
-git clone https://github.com/codechenx/.dotfiles.git
+bash -c "$(curl -LsS https://raw.github.com/codechenx/.dotfiles/main/scripts/setup.sh)"
+```
+
+### Pop!_OS
+```bash
+bash -c "$(wget --no-cache -qO - https://raw.github.com/codechenx/.dotfiles/main/scripts/setup.sh)"
 ```
 ## Using Dotfiles
 
