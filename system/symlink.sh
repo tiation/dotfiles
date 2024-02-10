@@ -40,6 +40,7 @@ touch ~/.config/fish/local.fish
 # bash config
 print_title "Bash configuration"
 symlink ~/.dotfiles/config/bash/.bashrc ~/.bashrc
+symlink ~/.dotfiles/config/bash/aliases.bash ~/.config/bash/aliases.bash
 symlink ~/.dotfiles/config/bash/functions.bash ~/.config/bash/functions.bash
 touch ~/.bash.local
 
