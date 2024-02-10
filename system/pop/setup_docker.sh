@@ -17,4 +17,5 @@ apt-cache policy docker-ce
 apt_update
 apt_install "docker-ce" "docker-ce"
 sudo systemctl status docker
-sudo usermod -aG docker ${USER}
+sudo usermod -aG docker "${USER}"
+
