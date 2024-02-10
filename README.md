@@ -14,86 +14,19 @@
 
 ## Uses
 
-- Supports `bash`, `zsh`, `fish`, `cmd` and `powershell` with `starship` shell prompt and has `tmux` support except for `cmd` and `powershell`
-- Replaces default terminal with `Alacritty`
+- Supports `bash`, `zsh`, `fish`  with `starship` shell prompt
 
 ## Installation
-
-> [!CAUTION]
-> If you have no idea what a dotfile is all about, please do not simply run these commands. They will override your configurations with my configurations and install bunch of packages.
-
-Depending on your OS, copy and paste the code to start installation. This code will download my dotfiles and start setup depending on your OS.
-
-### MacOS 12.0 Monterey (and above)
-
+In the home directory
 ```bash
-bash -c "$(curl -LsS https://raw.github.com/excalith/.dotfiles/main/scripts/setup.sh)"
+git clone https://github.com/codechenx/.dotfiles.git
 ```
-
-### Ubuntu 22.04 Jammy Jellyfish (and above)
-
-```bash
-bash -c "$(wget --no-cache -qO - https://raw.github.com/excalith/.dotfiles/main/scripts/setup.sh)"
-```
-
-### Arch Linux
-
-```bash
-bash -c "$(wget --no-cache -qO - https://raw.github.com/excalith/.dotfiles/main/scripts/setup.sh)"
-```
-
-### Windows (10 and above)
-
-#### Windows
-
-Allow remote scripts to run
-
-```ps
-# Allows you to run the script from remote
-Set-ExecutionPolicy Bypass -Scope Process
-
-# Allows you to run scripts locally
-Set-ExecutionPolicy RemoteSigned -Force
-Set-ExecutionPolicy -Scope CurrentUser -ExecutionPolicy RemoteSigned -Force
-```
-
-Download the dotfiles and start setup
-
-```ps
-Invoke-Expression (Invoke-WebRequest -Uri 'https://raw.githubusercontent.com/excalith/.dotfiles/main/scripts/setup.ps1').Content
-```
-
-Reset Execution Policy
-
-```ps
-Set-ExecutionPolicy -Scope Process -ExecutionPolicy Restricted
-```
-
-#### WSL Ubuntu
-
-To install packages for WSL Ubuntu, run the following command on WSL terminal.
-
-```bash
-bash -c "$(wget --no-cache -qO - https://raw.github.com/excalith/.dotfiles/main/scripts/setup.sh)"
-```
-
 ## Using Dotfiles
 
 After installing the dotfiles, you can pretty much start using these configurations right away.
 
 - All changes to configuration files will be recognized by git as modified within dotfiles folder except for the config files created with `.local` suffix.
 - You can use `dotfiles` command for dotfile manager script for running maintenance commands.
-
-## Making Your Own Dotfiles
-
-If you want to create your own dotfiles based on my configuration, you should
-
-1. Fork or download this repository
-2. Update [setup](scripts/setup.sh) script with your repository settings (do not change the preset `.dotfiles` path)
-3. Change the configurations and packages as you wish
-4. Push your changes to **your own** repository
-5. Run setup bash commands
-
 ## Credits
 
 This dotfiles repository is a heavily ~~knocked-off~~ inspired version of beautiful [Cătălin’s dotfiles](https://github.com/alrra/dotfiles). You should probably check it out!

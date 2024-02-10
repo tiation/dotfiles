@@ -7,21 +7,10 @@
 . "$HOME/.dotfiles/scripts/utils/utils.sh"
 . "$HOME/.dotfiles/scripts/utils/utils_macos.sh"
 
-
 #==================================
 # Print Section Title
 #==================================
 print_section "Installing Fish Shell"
-
-
-#==================================
-# Install ZSH
-#==================================
-print_title "Installing ZSH"
-brew_install "ZSH" "zsh"
-
-curl -L git.io/antigen > "$HOME/.config/antigen.zsh"
-print_progress "Installing Antigen"
 
 #==================================
 # Install Fish
@@ -29,7 +18,6 @@ print_progress "Installing Antigen"
 print_title "Installing Fish Setup"
 brew_install "Fish" "fish"
 brew_install "Fisher" "fisher"
-
 
 #==================================
 # Install fish packages
@@ -41,19 +29,11 @@ fisher_install "Puffer Fish" "nickeb96/puffer-fish"
 fisher_install "Done" "franciscolourenco/done"
 fisher_install "Fish SSH Agent" "danhper/fish-ssh-agent"
 
-
 #==================================
 # Install starship prompt
 #==================================
 print_title "Installing Starship Prompt"
 brew_install "Starship" "starship"
-
-
-#==================================
-# Instal TMUX Plugins
-#==================================
-~/.tmux/plugins/tpm/scripts/install_plugins.sh
-
 
 #==================================
 # Change Default Shell

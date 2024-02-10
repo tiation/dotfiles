@@ -1,102 +1,156 @@
-# If you come from bash you might have to change your $PATH.
-export LANG=en_US.UTF-8
-export LANGUAGE=en_US.UTF-8
-export LC_ALL=en_US.UTF-8
 
-# Dotfiles Path
-export DOTFILES_PATH="$HOME/.dotfiles"	
+### Added by Zinit's installer
+if [[ ! -f $HOME/.local/share/zinit/zinit.git/zinit.zsh ]]; then
+    print -P "%F{33} %F{220}Installing %F{33}ZDHARMA-CONTINUUM%F{220} Initiative Plugin Manager (%F{33}zdharma-continuum/zinit%F{220})…%f"
+    command mkdir -p "$HOME/.local/share/zinit" && command chmod g-rwX "$HOME/.local/share/zinit"
+    command git clone https://github.com/zdharma-continuum/zinit "$HOME/.local/share/zinit/zinit.git" && \
+        print -P "%F{33} %F{34}Installation successful.%f%b" || \
+        print -P "%F{160} The clone has failed.%f%b"
+fi
 
-# export PATH
-export PATH=$HOME/.local/bin:$HOME/local/sbin:$HOME/bin:$PATH:~/.cargo/bin
+source "$HOME/.local/share/zinit/zinit.git/zinit.zsh"
+autoload -Uz _zinit
+(( ${+_comps} )) && _comps[zinit]=_zinit
 
-# forgit
-export PATH="$PATH:$FORGIT_INSTALL_DIR/bin"
+# Load a few important annexes, without Turbo
+# (this is currently required for annexes)
+zinit light-mode for \
+    zdharma-continuum/zinit-annex-as-monitor \
+    zdharma-continuum/zinit-annex-bin-gem-node \
+    zdharma-continuum/zinit-annex-patch-dl \
+    zdharma-continuum/zinit-annex-rust
 
-# Disable Gatekeeper for homebrew
-export HOMEBREW_CASK_OPTS="--no-quarantine --no-binaries"
+### proxy ###
+#export ALL_PROXY=http://127.0.0.1:7890
 
-# Export GPG TTY
-export GPG_TTY=$(tty)
+# Some  modules to improve misc stuff
+zinit ice wait lucid atload'_zsh_autosuggest_start' nocd
+zinit light zsh-users/zsh-autosuggestions
 
-# Set default terminal
-#export TERM=alacritty
+zinit ice wait blockf atpull'zinit creinstall -q .' lucid
+zinit light zsh-users/zsh-completions
 
-# Micro True Color
-export "MICRO_TRUECOLOR=1"
+zinit ice wait lucid
+zinit light zdharma/fast-syntax-highlighting
 
-# Set default editor
-export EDITOR="lvim"
+zinit light alexrochas/zsh-extract
+zinit load zdharma/history-search-multi-word
+zinit load chrissicool/zsh-256color
 
-# Enable mouse scroll for less
-export LESS=-R
-export LESS='--mouse --wheel-lines=3'
-export COLUMNS=80
+# Enable completion caching
+zstyle ':completion:*' use-cache on
+zstyle ':completion:*' cache-path ~/.cache/zinit
+# Disable hostname completion, because it's slow
+zstyle ':completion:*' hosts off
 
-# Setup Bat
-export BAT_PAGER="less -RF"
+### End of Zinit's installer chunk
 
-# Setup FASD
-eval "$(fasd --init auto)"
+## History ###
+HISTFILE=~/.zsh_history         # where to store zsh config
+HISTSIZE=10000                  # big history
+SAVEHIST=10000                  # big history
+setopt append_history           # append
+setopt hist_expire_dups_first
+setopt hist_ignore_all_dups     # no duplicate
+setopt hist_expire_dups_first   # delete duplicates first when HISTFILE size exceeds HISTSIZE
+setopt hist_ignore_space        # ignore space prefixed commands
+setopt hist_verify              # show before executing history commands
+setopt inc_append_history       # add commands as they are typed, don't wait until shell exit 
+setopt share_history            # share hist between sessions
+setopt extended_history         # record timestamp of command in HISTFILE
+### hide name ###
+#prompt_context() {}
 
-# Setup Antigen
-source "$HOME/.config/antigen.zsh"
+### anaconda ###
+# >>> mamba initialize >>>
+# !! Contents within this block are managed by 'mamba init' !!
+export MAMBA_EXE='/usr/local/opt/micromamba/bin/micromamba';
+export MAMBA_ROOT_PREFIX='/Users/stephen/micromamba';
+__mamba_setup="$("$MAMBA_EXE" shell hook --shell zsh --root-prefix "$MAMBA_ROOT_PREFIX" 2> /dev/null)"
+if [ $? -eq 0 ]; then
+    eval "$__mamba_setup"
+else
+    alias micromamba="$MAMBA_EXE"  # Fallback on help from mamba activate
+fi
+unset __mamba_setup
+# <<< mamba initialize <<<
+CONDA_CHANGEPS1=false
 
-# Setup Plugins
-antigen bundle wfxr/forgit
-antigen bundle unixorn/fzf-zsh-plugin@main
-antigen bundle zsh-users/zsh-autosuggestions
-antigen bundle zsh-users/zsh-syntax-highlighting
-antigen apply
+### Go ###
+export GOPATH="$HOME/Applications/go/"
+export PATH="$HOME/Applications/go/bin:$PATH"
+export GO111MODULE=on
+#export GOPROXY=https://goproxy.cn
 
-# ZSH Highlight Configuration
-(( ${+ZSH_HIGHLIGHT_STYLES} )) || typeset -A ZSH_HIGHLIGHT_STYLES
-ZSH_HIGHLIGHT_STYLES[path]=none
-ZSH_HIGHLIGHT_STYLES[path_prefix]=none
+### Rust ###
+#export RUSTUP_DIST_SERVER=https://mirrors.tuna.tsinghua.edu.cn/rustup
+export PATH="$HOME/.cargo/bin:$PATH"
+fpath+=~/.zfunc
 
-# Setup FZF
-[ -f ~/.fzf/.fzf.zsh ] && source ~/.fzf/.fzf.zsh
-# export FZF_TMUX=1
-export FZF_DEFAULT_COMMAND='rg --files --no-ignore --hidden --follow --glob "!.git/*"'
-export FZF_CTRL_T_OPTS='fzf --preview "bat --style=numbers --color=always --line-range :500 {}"'
-export FZF_CTRL_R_OPTS="--preview 'echo {}' --preview-window down:3:hidden:wrap"
+### nvm ###
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
 
-# Easy navigation
-alias ..="cd .."
-alias ...="cd ../.."
-alias ....="cd ../../.."
-alias .....="cd ../../../.."
+### local bin ###
+export PATH="$HOME/.bin:$PATH"
 
-# Include ZSH Local
-source "$HOME/.zsh.local"
-source "$HOME/.config/bash/aliases.bash"
-source "$HOME/.config/bash/functions.bash"
-
-# Source starship
-export STARSHIP_CONFIG=~/.config/starship.toml
-eval "$(starship init zsh)"
-
-# Reload zsh sessions
-function sreload() {
-    source "$HOME/.zshrc"
-	source "$HOME/.zsh.local"
-	source "$HOME/.config/bash/aliases.bash"
-	source "$HOME/.config/bash/functions.bash"
-
-    tmux display-message "ZSH Shell Config Reloaded"
+### rap-fzf ###
+rga-fzf() {
+	RG_PREFIX="rga --files-with-matches"
+	local file
+	file="$(
+		FZF_DEFAULT_COMMAND="$RG_PREFIX '$1'" \
+			fzf --sort --preview="[[ ! -z {} ]] && rga --pretty --context 5 {q} {}" \
+				--phony -q "$1" \
+				--bind "change:reload:$RG_PREFIX {q}" \
+				--preview-window="70%:wrap"
+	)" &&
+	echo "opening $file" &&
+	xdg-open "$file"
 }
+## alias ##
+alias c="clear"
+alias h="history -E -10"
+alias resource="source ~/.zshrc"
+alias j="z"
 
-# Update shell
-function supdate() {
-    printf "\nUpdating zsh\n"
-    OS=$(uname)
-    case $OS in
-    Linux)
-        sudo apt upgrade -qqy --fix-missing && sudo apt install --allow-unauthenticated -qqy "zsh"
-        ;;
-    Darwin)
-        brew upgrade zsh
-        ;;
-    esac
+alias ls="exa --group-directories-first"
+alias la="exa -a"
+alias ll="exa -l"
+alias lla="exa -la"
 
-    tmux display-message "ZSH Shell Update Complete"
-}
+alias less="bat"
+alias more="bat"
+
+alias ps="procs"
+alias du="dust"
+alias ping='prettyping --nolegend'
+
+alias adl="aria2c"
+alias ydl="youtube-dl"
+
+alias preview="fzf --preview 'bat --color \"always\" {}'"
+
+alias grep='grep  --color=auto --exclude-dir={.git}'
+
+alias mamba='micromamba'
+
+alias g='git'
+alias ga='git add'
+alias gaa='git add --all'
+alias gb='git branch'
+alias gc='git commit -v'
+alias gc!='git commit -v --amend'
+alias gca='git commit -v -a'
+alias gca!='git commit -v -a --amend'
+alias gco='git checkout'
+alias gd='git diff'
+alias gl='git pull'
+alias glg='git log --stat'
+alias glog='git log --oneline --decorate --graph'
+alias gm='git merge'
+alias gp='git push'
+alias gst='git status'
+
+test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"

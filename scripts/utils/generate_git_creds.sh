@@ -6,30 +6,29 @@
 #==================================
 . "$HOME/.dotfiles/scripts/utils/utils.sh"
 
-
 main() {
 	print_section "Git Credentials"
 
-    ask_for_confirmation "Do you want to update Git Credentials?"
-    printf "\n"
+	ask_for_confirmation "Do you want to update Git Credentials?"
+	printf "\n"
 
-    if answer_is_yes; then
-	    ask "Git Username: "
+	if answer_is_yes; then
+		ask "Git Username: "
 		local username="$(get_answer)"
 
-	    ask "Git E-Mail  : "
+		ask "Git E-Mail  : "
 		local email="$(get_answer)"
 
-        touch ~/.config/git/.gitconfig.local
-        echo "[user]
+		touch ~/.config/git/.gitconfig.local
+		echo "[user]
     	name = $username
     	email = $email" >~/.config/git/.gitconfig.local
 
 		printf "\n"
 		print_result $? "Generate git credentials"
-    else	
+	else
 		print_warning "Skipped git credentials setup"
 	fi
- }
+}
 
- main
+main

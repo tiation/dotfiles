@@ -5,21 +5,24 @@
 # Source utilities
 #==================================
 . "$HOME/.dotfiles/scripts/utils/utils.sh"
-. "$HOME/.dotfiles/scripts/utils/utils_macos.sh"
+. "$HOME/.dotfiles/scripts/utils/utils_pop.sh"
 
 #==================================
 # Print Section Title
 #==================================
-print_section "Running MacOS Dotfiles Setup"
+print_section "Running Pop!_OS Dotfiles Setup"
 
 # setup symlinks
 . "$HOME/.dotfiles/system/symlink.sh"
 
 # setup packages
-. "$HOME/.dotfiles/system/macos/setup_packages.sh"
+. "$HOME/.dotfiles/system/ubuntu/setup_packages.sh"
+
+# setup fonts
+. "$HOME/.dotfiles/system/ubuntu/setup_fonts.sh"
 
 # setup defaults
-. "$HOME/.dotfiles/system/macos/setup_defaults.sh"
+. "$HOME/.dotfiles/system/ubuntu/setup_defaults.sh"
 
 # setup shell
-. "$HOME/.dotfiles/system/macos/setup_shell.sh"
+. "$HOME/.dotfiles/system/ubuntu/setup_shell.sh"
