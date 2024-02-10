@@ -50,13 +50,13 @@ execute "sudo sh -c 'echo $(which fish) >> /etc/shells'" "Adding fish to shells"
 execute "chsh -s $(which fish)" "Changing default shell into fish"
 # execute "sudo echo /usr/local/bin/fish >> /etc/shells" "Adding fish to shells"
 # execute "chsh -s /usr/local/bin/fish" "Changing default shell into fish"
-execute "fish_update_completions >/dev/null 2>&1" "Updating fish completions"
+execute "fish -c fish_update_completions >/dev/null 2>&1" "Updating fish completions"
 
 #==================================
 # Micromamba Shell Init
 #==================================
 print_title "Micromamba Shell Init"
-/usr/local/bin/micromamba shell init -s bash -p ~/micromamba
-/usr/local/bin/micromamba shell init -s fish -p ~/micromamba
-/usr/local/bin/micromamba shell init -s zsh -p ~/micromamba
+/usr/local/bin/micromamba shell init -s bash -p ~/micromamba &> /dev/null
+/usr/local/bin/micromamba shell init -s fish -p ~/micromamba &> /dev/null
+/usr/local/bin/micromamba shell init -s zsh -p ~/micromamba &> /dev/null
 print_result $? "Init micromamba Shell for bash, fish and zsh" "true"

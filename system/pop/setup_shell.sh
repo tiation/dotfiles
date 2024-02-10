@@ -62,14 +62,14 @@ print_in_green "chsh which fish"
 sudo chsh -s "$(which fish)" >/dev/null 2>&1
 print_in_green "sed 2"
 sudo sed -i '/auth       sufficient   pam_shells.so/ s//auth       required   pam_shells.so/g' /etc/pam.d/chsh >/dev/null 2>&1
-
+execute "fish -c fish_update_completions >/dev/null 2>&1" "Updating fish completions"
 print_result $? "Change fish as default shell" "true"
 
 #==================================
 # Micromamba Shell Init
 #==================================
 print_title "Micromamba Shell Init"
-micromamba shell init -s fish -p ~/micromamba
-micromamba shell init -s zsh -p ~/micromamba
-micromamba shell init -s bash -p ~/micromamba
+micromamba shell init -s fish -p ~/micromamba &> /dev/null
+micromamba shell init -s zsh -p ~/micromamba &> /dev/null
+micromamba shell init -s bash -p ~/micromamba &> /dev/null
 print_result $? "Init micromamba Shell for bash, fish and zsh" "true"
