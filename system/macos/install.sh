@@ -25,4 +25,4 @@ print_section "Running MacOS Dotfiles Setup"
 . "$HOME/.dotfiles/system/macos/setup_shell.sh"
 
 # setup micromambe
-. "$HOME/.dotfiles/system/macos/setup_micomamba.sh"
+. "$HOME/.dotfiles/system/macos/setup_micromamba.sh"

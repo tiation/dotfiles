@@ -28,7 +28,7 @@ print_section "Running Pop!_OS Dotfiles Setup"
 . "$HOME/.dotfiles/system/pop/setup_shell.sh"
 
 # setup micromambe
-. "$HOME/.dotfiles/system/pop/setup_micomamba.sh"
+.  "$HOME/.dotfiles/system/pop/setup_micromamba.sh"
 
 # setup docker
 . "$HOME/.dotfiles/system/pop/setup_docker.sh"
