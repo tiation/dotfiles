@@ -35,33 +35,45 @@ brew_tap 'homebrew/cask' || true
 brew_tap 'homebrew/cask-versions'
 brew_tap 'homebrew/cask-fonts'
 brew_tap 'eth-p/software'
+brew_tap 'pot-app/homebrew-tap'
 
 #==================================
 # Brew Install
 #==================================
 print_title "Installing Brew Packages"
+brew_install "font-hack-nerd-font" "font-hack-nerd-font"
+
 brew_install "git" "git"
-brew_install "git" "git-lfs"
-brew_install "git" "git-delta"
+brew_install "git-lfs" "git-lfs"
+brew_install "git-delta" "git-delta"
 brew_install "forgit" "forgit"
 brew_install "lazygit" "lazygit"
-brew_install "gum" "gum"
-brew_install "tree" "tree"
-brew_install "git" "git-quick-stats"
-brew_install "prettyping" "prettyping"
-brew_install "micromamba" "micromamba"
-brew_install "zellij" "zellij"
+brew_install "git-quick-stats" "git-quick-stats"
+
+brew_install "Mac App Store command-line interface" "mas"
 brew_install "go" "go"
+brew_install "rust" "rust"
+brew_install "Neovim" "neovim"
+brew_install "micromamba" "micromamba"
+
+brew_install "gum" "gum"
+
+brew_install "tree" "tree"
+brew_install "prettyping" "prettyping"
+brew_install "zellij" "zellij"
+brew_install "dust" "dust"
+brew_install "aria2" "aria2"
 brew_install "jq" "jq"
+brew_install "neofetch" "neofetch"
 brew_install "fzf" "fzf"
 brew_install "bat" "bat"
 brew_install "bat-extras" "eth-p/software/bat-extras"
 brew_install "exa" "exa"
 brew_install "fd" "fd"
+brew_install "sd" "sd"
+brew_install "choose-rust" "choose-rust"
 brew_install "rg" "ripgrep"
 brew_install "procs" "procs"
-brew_install "Neovim" "neovim"
-brew_install "Mac App Store command-line interface" "mas"
 brew_install "Dockutil" "dockutil"
 
 #==================================
@@ -87,6 +99,10 @@ brew_install "Cleanshot" "cleanshot" "--cask"
 brew_install "Bartender" "bartender" "--cask"
 brew_install "Keyboard Maestro" "keyboard-maestro" "--cask"
 brew_install "Pdf Expert" "pdf-expert" "--cask"
+brew_install "Hazel" "hazel" "--cask"
+brew_install "Adguard" "adguard" "--cask"
+brew_install "Stats" "stats" "--cask"
+brew_install "Pot-desktop" "pot" "--cask"
 
 #==================================
 # Brew MAS
@@ -107,9 +123,11 @@ brew_mas_install "Xmind", "1327661892"
 #==================================
 print_title "Starting Brew Services"
 printf "nothing to install\n"
+# brew_start_service "yabai" "yabai"
 
 #==================================
 # Install From Source
 #==================================
+mkdir -p ~/.bin
 print_title "Install Packages From Source"
 printf "nothing to install\n"

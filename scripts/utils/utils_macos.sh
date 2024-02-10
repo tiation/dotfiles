@@ -100,21 +100,22 @@ brew_start_service() {
 }
 
 #==================================
-# YARN
+# Micromamba
 #==================================
-yarn_install() {
-	declare -r PACKAGE="$2"
+mamba_env_install() {
+	declare -r PACKAGE="$3"
+	declare -r ENVNAME="$2"
 	declare -r PACKAGE_READABLE_NAME="$1"
-
-	# Install the specified formula.
-	# shellcheck disable=SC2086
-	if yarn global list "$FORPACKAGEMULA" &>/dev/null; then
-		print_success "$PACKAGE_READABLE_NAME"
+	printf "Installing %s:%s\n" "$ENVNAME" "$PACKAGE_READABLE_NAME"
+	if ! env_installed "$ENVNAME"; then
+		execute "micromamba create -y -c conda-forge -c bioconda -n $ENVNAME $PACKAGE" "$ENVNAME:$PACKAGE_READABLE_NAME"
 	else
-		execute \
-			"yarn global add  $PACKAGE" \
-			"$PACKAGE_READABLE_NAME"
+		print_success "$ENVNAME:$PACKAGE_READABLE_NAME"
 	fi
+}
+
+env_installed() {
+	micromamba env list | grep -i "envs/$1\ " &>/dev/null
 }
 
 #==================================

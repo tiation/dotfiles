@@ -16,13 +16,19 @@ print_section "Running Pop!_OS Dotfiles Setup"
 . "$HOME/.dotfiles/system/symlink.sh"
 
 # setup packages
-. "$HOME/.dotfiles/system/ubuntu/setup_packages.sh"
+. "$HOME/.dotfiles/system/pop/setup_packages.sh"
 
 # setup fonts
-. "$HOME/.dotfiles/system/ubuntu/setup_fonts.sh"
+. "$HOME/.dotfiles/system/pop/setup_fonts.sh"
 
 # setup defaults
-. "$HOME/.dotfiles/system/ubuntu/setup_defaults.sh"
+. "$HOME/.dotfiles/system/pop/setup_defaults.sh"
 
 # setup shell
-. "$HOME/.dotfiles/system/ubuntu/setup_shell.sh"
+. "$HOME/.dotfiles/system/pop/setup_shell.sh"
+
+# setup micromambe
+. "$HOME/.dotfiles/system/pop/setup_micomamba.sh"
+
+# setup docker
+. "$HOME/.dotfiles/system/pop/setup_docker.sh"

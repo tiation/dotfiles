@@ -82,7 +82,6 @@ apt_install "software-properties-common" "software-properties-common"
 apt_install "libgconf-2-4" "libgconf-2-4"
 apt_install "cargo" "cargo"
 
-apt_install "tmux" "tmux"
 apt_install "less" "less"
 apt_install "bat" "bat"
 apt_install "tre-command" "tre-command"
@@ -117,6 +116,9 @@ printf "nothing to install\n"
 print_title "Install Cargo Packages"
 
 cargo_install "exa" "exa"
+cargo_install "zellij" "zellij"
+cargo_install "sd" "sd"
+cargo_install "choose" "choose"
 
 #==================================
 # Install Flatpak Packages
@@ -133,13 +135,17 @@ flatpak_install "Microsoft Edge" "com.microsoft.Edge"
 # Install From Source
 #==================================
 print_title "Install Packages From Source"
-
+mkdir -p ~/.bin
 # LazyGit
 LAZYGIT_VERSION=$(curl -s "https://api.github.com/repos/jesseduffield/lazygit/releases/latest" | grep '"tag_name":' | sed -E 's/.*"v*([^"]+)".*/\1/')
 curl -Lo lazygit.tar.gz --silent --output /dev/null "https://github.com/jesseduffield/lazygit/releases/latest/download/lazygit_${LAZYGIT_VERSION}_Linux_x86_64.tar.gz"
 sudo tar xf lazygit.tar.gz -C /usr/local/bin lazygit
 rm -rf lazygit.tar.gz
 print_success "lazygit"
+# Tabby
+curl -s https://packagecloud.io/install/repositories/eugeny/tabby/script.deb.sh | sudo bash
+# Micromamba
+yes|curl -L micro.mamba.pm/install.sh|bash
 
 #==================================
 # Install Extensions

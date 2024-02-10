@@ -101,6 +101,25 @@ cargo_install() {
 }
 
 #==================================
+# Micromamba
+#==================================
+mamba_env_install() {
+	declare -r PACKAGE="$3"
+	declare -r ENVNAME="$2"
+	declare -r PACKAGE_READABLE_NAME="$1"
+	printf "Installing %s:%s\n" "$ENVNAME" "$PACKAGE_READABLE_NAME"
+	if ! env_installed "$ENVNAME"; then
+		execute "micromamba create -y -c conda-forge -c bioconda -n $ENVNAME $PACKAGE" "$ENVNAME:$PACKAGE_READABLE_NAME"
+	else
+		print_success "$ENVNAME:$PACKAGE_READABLE_NAME"
+	fi
+}
+
+env_installed() {
+	micromamba env list | grep -i "envs/$1\ " &>/dev/null
+}
+
+#==================================
 # FLATPAK
 #==================================
 flatpak_install() {

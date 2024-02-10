@@ -11,10 +11,10 @@ alias hg="history | rg " # +command
 alias pubip="dig +short txt ch whoami.cloudflare @1.0.0.1"
 alias locip="sudo ifconfig | grep -Eo 'inet (addr:)?([0-9]*\\.){3}[0-9]*' | grep -Eo '([0-9]*\\.){3}[0-9]*' | grep -v '127.0.0.1'"
 
-# Update LunarVim
-alias lvupdate="lvim +LvimUpdate +q"
-
 # Command replacements
+alias vim="nvim"
+alias vi="nvim"
+
 alias j="z"
 
 alias ls='exa'
@@ -40,4 +40,3 @@ alias preview="fzf --preview 'bat --color \"always\" {}'"
 alias ping='c_prettyping'
 
 alias adl="aria2c"
-alias ydl="youtube-dl"

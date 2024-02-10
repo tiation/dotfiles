@@ -30,14 +30,17 @@ print_result $? "Fisher" "true"
 # Install fish packages
 #==================================
 print_title "Installing Fish Packages"
+fisher_install "Fisher" "jorgebucaran/fisher"
 fisher_install "FZF" "PatrickF1/fzf.fish"
-fisher_install "Autojump" "jethrokuan/z"
+fisher_install "async-prompt" "acomagu/fish-async-prompt"
 fisher_install "Forgit" "wfxr/forgit"
+fisher_install "Autojump" "jethrokuan/z"
 fisher_install "Autopair" "jorgebucaran/autopair.fish"
-fisher_install "Abbreviation-tips" "gazorby/fish-abbreviation-tips"
 fisher_install "Puffer Fish" "nickeb96/puffer-fish"
 fisher_install "Done" "franciscolourenco/done"
+fisher_install "Abbreviation-tips" "gazorby/fish-abbreviation-tips"
 fisher_install "Fish SSH Agent" "danhper/fish-ssh-agent"
+fisher_install "Safe trash" "aluxian/fish-trash"
 
 #==================================
 # Install starship prompt
@@ -61,3 +64,12 @@ print_in_green "sed 2"
 sudo sed -i '/auth       sufficient   pam_shells.so/ s//auth       required   pam_shells.so/g' /etc/pam.d/chsh >/dev/null 2>&1
 
 print_result $? "Change fish as default shell" "true"
+
+#==================================
+# Micromamba Shell Init
+#==================================
+print_title "Micromamba Shell Init"
+micromamba shell init -s fish -p ~/micromamba
+micromamba shell init -s zsh -p ~/micromamba
+micromamba shell init -s bash -p ~/micromamba
+print_result $? "Init micromamba Shell for bash, fish and zsh" "true"
