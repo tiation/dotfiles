@@ -20,12 +20,12 @@
 ### MacOS 12.0 Monterey (and above)
 
 ```bash
-bash -c "$(curl -LsS https://raw.github.com/codechenx/.dotfiles/main/scripts/setup.sh)"
+bash -c "$(curl -LsS https://raw.github.com/codechenx/dotfiles/main/scripts/setup.sh)"
 ```
 
 ### Pop!_OS
 ```bash
-bash -c "$(wget --no-cache -qO - https://raw.github.com/codechenx/.dotfiles/main/scripts/setup.sh)"
+bash -c "$(wget --no-cache -qO - https://raw.github.com/codechenx/dotfiles/main/scripts/setup.sh)"
 ```
 ## Using Dotfiles
 
