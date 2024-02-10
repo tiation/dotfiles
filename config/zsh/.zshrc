@@ -109,48 +109,5 @@ rga-fzf() {
 	echo "opening $file" &&
 	xdg-open "$file"
 }
-## alias ##
-alias c="clear"
-alias h="history -E -10"
-alias resource="source ~/.zshrc"
-alias j="z"
-
-alias ls="exa --group-directories-first"
-alias la="exa -a"
-alias ll="exa -l"
-alias lla="exa -la"
-
-alias less="bat"
-alias more="bat"
-
-alias ps="procs"
-alias du="dust"
-alias ping='prettyping --nolegend'
-
-alias adl="aria2c"
-alias ydl="youtube-dl"
-
-alias preview="fzf --preview 'bat --color \"always\" {}'"
-
-alias grep='grep  --color=auto --exclude-dir={.git}'
-
-alias mamba='micromamba'
-
-alias g='git'
-alias ga='git add'
-alias gaa='git add --all'
-alias gb='git branch'
-alias gc='git commit -v'
-alias gc!='git commit -v --amend'
-alias gca='git commit -v -a'
-alias gca!='git commit -v -a --amend'
-alias gco='git checkout'
-alias gd='git diff'
-alias gl='git pull'
-alias glg='git log --stat'
-alias glog='git log --oneline --decorate --graph'
-alias gm='git merge'
-alias gp='git push'
-alias gst='git status'
 
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"

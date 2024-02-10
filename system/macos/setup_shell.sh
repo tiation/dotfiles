@@ -25,8 +25,11 @@ brew_install "Fisher" "fisher"
 print_title "Installing Fish Packages"
 fisher_install "Fisher" "jorgebucaran/fisher"
 fisher_install "FZF" "PatrickF1/fzf.fish"
+fisher_install "Autojump" "jethrokuan/z"
+fisher_install "Autopair" "jorgebucaran/autopair.fish"
 fisher_install "Puffer Fish" "nickeb96/puffer-fish"
 fisher_install "Done" "franciscolourenco/done"
+fisher_install "Abbreviation-tips" "gazorby/fish-abbreviation-tips"
 fisher_install "Fish SSH Agent" "danhper/fish-ssh-agent"
 
 #==================================

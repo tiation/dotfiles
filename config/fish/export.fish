@@ -10,13 +10,11 @@ set -gx LANGUAGE en_US.UTF-8
 set -gx LC_ALL en_US.UTF-8
 set -gx LC_CTYPE en_US.UTF-8
 
-# Set default terminal
-#set -gx TERM alacritty
-
-set -gx PATH "/usr/local/sbin:~/.local/bin:$PATH:~/.cargo/bin"
+#set -gx PATH "/usr/local/sbin:~/.local/bin:$PATH:~/.cargo/bin"
 
 # Add Path
-fish_add_path "./bin"
+fish_add_path "~/.bin"
+fish_add_path "~/.cargo/bin"
 fish_add_path "/usr/local/bin"
 fish_add_path "/usr/local/sbin"
 fish_add_path "/usr/local/opt/"

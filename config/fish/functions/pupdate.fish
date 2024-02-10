@@ -6,5 +6,4 @@ function pupdate --description 'Updates starship shell prompt'
 		case Darwin
 			brew upgrade starship
 	end
-	tmux display-message "Starship Prompt Update Complete"
 end
