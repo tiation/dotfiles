@@ -10,14 +10,14 @@ set -gx LANGUAGE en_US.UTF-8
 set -gx LC_ALL en_US.UTF-8
 set -gx LC_CTYPE en_US.UTF-8
 
-set -gx PATH "/usr/local/sbin:~/.local/bin:$PATH:~/.cargo/bin:~/.bin"
+set -gx PATH  "/usr/local/sbin:~/.local/bin:$PATH:~/.cargo/bin:~/.bin"
 
 # Add Path
-fish_add_path "~/.bin"
-fish_add_path "~/.cargo/bin"
-fish_add_path "/usr/local/bin"
-fish_add_path "/usr/local/sbin"
-fish_add_path "/usr/local/opt/"
+fish_add_path ~/.bin
+fish_add_path ~/.cargo/bin
+fish_add_path /usr/local/bin
+fish_add_path /usr/local/sbin
+fish_add_path /usr/local/opt/
 
 # Export Homebrew Path
 set -gx HOMEBREW_CURL_PATH "/usr/bin/curl"
