@@ -48,7 +48,8 @@ if answer_is_yes; then
 	dockutil --add "/Applications/Notion.app" &>/dev/null
 	dockutil --add "/Applications/Papers.app" &>/dev/null
 	dockutil --add "/Applications/zoc8.app" &>/dev/null
-	dockutil --add "/Applications/Reeder.app" &>/dev/null
+ 	dockutil --add "/Applications/Reeder.app" &>/dev/null
+	dockutil --add "/Applications/WeChat.app" &>/dev/null
 fi
 
 execute "defaults write com.apple.dock show-recents -bool FALSE" "Hide recents on dock"
