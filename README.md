@@ -1,5 +1,5 @@
 <p align="center">
-	<h1 align="center">Excalith Dotfiles</h1>
+	<h1 align="center">My dotfiltes by modifying Excalith Dotfiles</h1>
 </p>
 
 ![Screenshot of alacritty terminal using fish shell with spaceship prompt and tmux, displaying neofetch, nvim and custom scripts](assets/screenshots/dotfiles.png)
