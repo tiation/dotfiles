@@ -46,7 +46,6 @@ brew_install "font-hack-nerd-font" "font-hack-nerd-font"
 brew_install "git" "git"
 brew_install "git-lfs" "git-lfs"
 brew_install "git-delta" "git-delta"
-brew_install "forgit" "forgit"
 brew_install "lazygit" "lazygit"
 brew_install "git-quick-stats" "git-quick-stats"
 
