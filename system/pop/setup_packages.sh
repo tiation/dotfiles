@@ -51,8 +51,8 @@ apt_upgrade
 print_title "Install Package Managers"
 
 apt_install "nala" "nala"
-apt_install "flatpak" "flatpak"
-apt_install "flatpak gnome plugin" "gnome-software-plugin-flatpak"
+#apt_install "flatpak" "flatpak"
+#apt_install "flatpak gnome plugin" "gnome-software-plugin-flatpak"
 flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo >/dev/null 2>&1
 
 #==================================
@@ -61,8 +61,8 @@ flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flat
 print_title "Install APT Packages"
 
 apt_install "Build Essential" "build-essential"
-apt_install "Gnome Shell Extensions" "gnome-shell-extensions"
-apt_install "Gnome Shell Extension Manager" "gnome-shell-extension-manager"
+#apt_install "Gnome Shell Extensions" "gnome-shell-extensions"
+#apt_install "Gnome Shell Extension Manager" "gnome-shell-extension-manager"
 apt_install "Gnome Tweaks" "gnome-tweaks"
 
 apt_install "heif-gdk-pixbuf" "heif-gdk-pixbuf"
