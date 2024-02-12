@@ -93,7 +93,7 @@ cargo_install() {
 	declare -r PACKAGE="$2"
 	declare -r PACKAGE_READABLE_NAME="$1"
 
-	if ! snap_installed "$PACKAGE"; then
+	if ! flatpak_installed "$PACKAGE"; then
 		execute "cargo install $PACKAGE" "$PACKAGE_READABLE_NAME"
 	else
 		print_success "$PACKAGE_READABLE_NAME"
