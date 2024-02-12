@@ -59,22 +59,6 @@ setopt inc_append_history       # add commands as they are typed, don't wait unt
 setopt share_history            # share hist between sessions
 setopt extended_history         # record timestamp of command in HISTFILE
 ### hide name ###
-#prompt_context() {}
-
-### anaconda ###
-# >>> mamba initialize >>>
-# !! Contents within this block are managed by 'mamba init' !!
-export MAMBA_EXE='/usr/local/opt/micromamba/bin/micromamba';
-export MAMBA_ROOT_PREFIX='/Users/stephen/micromamba';
-__mamba_setup="$("$MAMBA_EXE" shell hook --shell zsh --root-prefix "$MAMBA_ROOT_PREFIX" 2> /dev/null)"
-if [ $? -eq 0 ]; then
-    eval "$__mamba_setup"
-else
-    alias micromamba="$MAMBA_EXE"  # Fallback on help from mamba activate
-fi
-unset __mamba_setup
-# <<< mamba initialize <<<
-CONDA_CHANGEPS1=false
 
 ### Go ###
 export GOPATH="$HOME/Applications/go/"
@@ -83,7 +67,6 @@ export GO111MODULE=on
 #export GOPROXY=https://goproxy.cn
 
 ### Rust ###
-#export RUSTUP_DIST_SERVER=https://mirrors.tuna.tsinghua.edu.cn/rustup
 export PATH="$HOME/.cargo/bin:$PATH"
 fpath+=~/.zfunc
 
