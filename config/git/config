@@ -1,13 +1,13 @@
 [init]
 	defaultBranch = main
 [core]
-	editor = code --wait --new-window
+    editor = code --wait --new-window
     whitespace = -trailing-space # Don't consider trailing space change as a cause for merge conflicts
     excludesFile = ~/.config/git/.gitignore.global
     pager = delta
-	autocrlf = input
+    autocrlf = input
 [branch]
-	autosetuprebase = always #avoid having messy “Merge branch 'main' into …” commits by rebasing every time you pull.
+    autosetuprebase = always #avoid having messy “Merge branch 'main' into …” commits by rebasing every time you pull.
 [status]
     submoduleSummary = true # Display submodule rev change summaries in status
     showUntrackedFiles = all # Recursively traverse untracked directories to display all contents
@@ -127,7 +127,7 @@
     line-numbers-left-style = yellow
     line-numbers-right-style = yellow
 [credential]
-	helper = osxkeychain
+	helper = store
 [gui]
 	fontui = -family \".SF NS\" -size 13 -weight normal -slant roman -underline 0 -overstrike 0
 	fontdiff = -family \"FiraCode Nerd Font\" -size 11 -weight normal -slant roman -underline 0 -overstrike 0
