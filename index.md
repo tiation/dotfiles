@@ -3,9 +3,11 @@ layout: default
 title: Tiation Dotfiles
 ---
 
-# Tiation Dotfiles
+# 🚀 Tiation Dotfiles
 
-Welcome to the Tiation dotfiles repository - a comprehensive collection of configuration files for macOS development environments.
+<div class="enterprise-badge">Enterprise Grade</div>
+
+Welcome to the Tiation dotfiles repository - a comprehensive collection of configuration files for macOS development environments with **dark neon aesthetics** and **enterprise-grade functionality**.
 
 ## Features
 
